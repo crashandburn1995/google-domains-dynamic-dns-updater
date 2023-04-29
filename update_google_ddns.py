@@ -3,7 +3,9 @@ import ipaddress
 from itertools import groupby
 
 ip_retrieval_attempts = 3
-update_ddns_url = "https://{}:{}@domains.google.com/nic/update?hostname={}&myip={}"
+update_google_ddns_url = (
+    "https://{}:{}@domains.google.com/nic/update?hostname={}&myip={}"
+)
 username = ""
 password = ""
 hostname = ""
@@ -60,7 +62,7 @@ if __name__ == "__main__":
 
     current_ip = ip_addresses[0]
     update_ddns_request = requests.post(
-        update_ddns_url.format(username, password, hostname, current_ip)
+        update_google_ddns_url.format(username, password, hostname, current_ip)
     )
 
     if not update_ddns_request.ok:
