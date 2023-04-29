@@ -27,6 +27,7 @@ def all_equal(iterable) -> bool:
 
 # This function makes a request to a web server and returns an
 # ip address.
+# It returns an IP address or an exception.
 def get_ip_address_from_web_server(url: str) -> ipaddress.ip_address:
     query_result = requests.get(url)
     if query_result.status_code != 200:
@@ -51,20 +52,28 @@ def get_ip_addresses_from_multiple_web_servers(urls: str) -> str:
 
 
 if __name__ == "__main__":
+    # Attempt to get the WAN IP up to 3 times before exiting.
     for attempt in range(ip_retrieval_attempts):
+        # Get the WAN IP from multiple sources.
         ip_addresses = get_ip_addresses_from_multiple_web_servers(
             urls_which_return_requestor_ip_address
         )
+
+        # If the WAN IP matches, then exit the loop. Otherwise, try again.
         if all_equal(ip_addresses):
             break
     else:
+        # If after 3 times the IP address doesn't match, exit the program.
         raise ValueError("IP addresses not equal.")
 
     current_ip = ip_addresses[0]
+
+    # Send request to Google DDNS to update the IP.
     update_ddns_request = requests.post(
         update_google_ddns_url.format(username, password, hostname, current_ip)
     )
 
+    # If an error occurs, print it to the console.
     if not update_ddns_request.ok:
         raise ValueError(
             "An error occurred when updating the domain: {}".format(
@@ -72,4 +81,5 @@ if __name__ == "__main__":
             )
         )
 
+    # Otherwise, print the success message.
     print("DDNS update request successful: {}".format(update_ddns_request.text))
