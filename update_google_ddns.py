@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# This file updates a Google DDNS record with the WAN IP.
+
 import requests
 import ipaddress
 from itertools import groupby
@@ -25,8 +28,7 @@ def all_equal(iterable) -> bool:
     return next(g, True) and not next(g, False)
 
 
-# This function makes a request to a web server and returns an
-# ip address.
+# This function makes a request to a web server and returns an ip address.
 # It returns an IP address or an exception.
 def get_ip_address_from_web_server(url: str) -> ipaddress.ip_address:
     query_result = requests.get(url)
