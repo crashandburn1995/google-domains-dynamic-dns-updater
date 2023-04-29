@@ -84,4 +84,7 @@ if __name__ == "__main__":
         )
 
     # Otherwise, print the success message.
-    print("DDNS update request successful: {}".format(update_ddns_request.text))
+    print(
+        "DDNS update request successful: {}".format(update_ddns_request.text),
+        flush=True,
+    )
