@@ -25,7 +25,7 @@ Version:     3.0.17.9190
     ```
 5. Setup a cron job to make the bash script run periodically. The following command can be used on the Unifi device to do this:
     ```
-    (crontab -u root -l; echo "* */5 * * * /root/google-domains-dynamic-dns-updater/update_google_ddns.sh" ) | crontab -u root -
+    (crontab -u root -l; echo "0 */5 * * * /root/google-domains-dynamic-dns-updater/update_google_ddns.sh" ) | crontab -u root -
     ```
     The cron job can be validated and adjusted by doing:
     ```
