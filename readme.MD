@@ -39,3 +39,4 @@ Version:     3.0.17.9190
     ```
     UDR update_google_ddns[]: DDNS update request successful: (response from Google)
     ```
+8. Disable SSH on the Unifi device if desired.
