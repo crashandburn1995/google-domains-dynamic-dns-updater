@@ -71,7 +71,7 @@ if __name__ == "__main__":
         if all_equal(ip_addresses):
             break
     else:
-        # If after 3 times the IP address doesn't match, exit the program.
+        # Exit the program if the IP addresses don't match after the maximum number of attempts.
         raise ValueError("IP addresses not equal.")
 
     current_ip = ip_addresses[0]
