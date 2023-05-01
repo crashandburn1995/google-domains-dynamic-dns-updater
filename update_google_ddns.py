@@ -99,7 +99,7 @@ if __name__ == "__main__":
     # If an error occurs, raise an exception with the error information.
     if not update_google_ddns_request_result.ok:
         raise ValueError(
-            "An error occurred when updating the domain: {}".format(
+            "The following error occurred when updating the Google Dynamic DNS entry: {}".format(
                 update_google_ddns_request_result.text
             )
         )
