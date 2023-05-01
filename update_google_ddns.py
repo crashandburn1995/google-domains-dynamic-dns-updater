@@ -67,7 +67,7 @@ if __name__ == "__main__":
             urls_which_return_requestor_ip_address
         )
 
-        # If the WAN IP matches, then exit the loop. Otherwise, try again.
+        # If all of the IPs match, then exit the loop. Otherwise, try again.
         if all_equal(ip_addresses):
             break
     else:
