@@ -90,7 +90,7 @@ if __name__ == "__main__":
         update_google_ddns_url.format(username, password, hostname, wan_ip)
     )
 
-    # If an error occurs, print it to the console.
+    # If an error occurs, raise an exception with the error information.
     if not update_google_ddns_request_result.ok:
         raise ValueError(
             "An error occurred when updating the domain: {}".format(
@@ -98,10 +98,12 @@ if __name__ == "__main__":
             )
         )
 
+    success_message = "DDNS update request successful: {}".format(
+        update_google_ddns_request_result.text
+    )
+
     # Otherwise, print the success message.
     print(
-        "DDNS update request successful: {}".format(
-            update_google_ddns_request_result.text
-        ),
+        success_message,
         flush=True,
     )
