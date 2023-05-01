@@ -11,7 +11,7 @@ update_google_ddns_url = (
 )
 
 # The number of times to attempt to get the WAN IP.
-ip_retrieval_attempts = 3
+wan_ip_retrieval_attempts = 3
 
 # Google DDNS credentials and hostname.
 username = ""
@@ -60,8 +60,17 @@ def get_ip_addresses_from_multiple_web_servers(urls: list) -> list:
 
 
 if __name__ == "__main__":
+    if not username:
+        raise ValueError("The Google DDNS username is empty.")
+
+    if not password:
+        raise ValueError("The Google DDNS password is empty.")
+
+    if not hostname:
+        raise ValueError("The Google DDNS hostname is empty.")
+
     # Attempt to get the WAN IP multiple times before exiting.
-    for attempt in range(ip_retrieval_attempts):
+    for attempt in range(wan_ip_retrieval_attempts):
         # Get the WAN IP from multiple sources.
         ip_addresses = get_ip_addresses_from_multiple_web_servers(
             urls_which_return_requestor_ip_address
