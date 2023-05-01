@@ -10,7 +10,7 @@ update_google_ddns_url = (
     "https://{}:{}@domains.google.com/nic/update?hostname={}&myip={}"
 )
 
-# The number of times to attempt to get the WAN IP.
+# The maximum number of times to attempt to get the WAN IP.
 wan_ip_retrieval_attempts = 3
 
 # Google DDNS credentials and hostname.
@@ -71,7 +71,7 @@ if __name__ == "__main__":
     if not hostname:
         raise ValueError("The Google DDNS hostname is empty.")
 
-    # Attempt to get the WAN IP multiple times before exiting.
+    # Attempt to get the WAN IP and retry if there is an error (up to the configured number of retry attempts).
     for attempt in range(wan_ip_retrieval_attempts):
         # Get the WAN IP from multiple sources.
         try:
