@@ -104,7 +104,7 @@ if __name__ == "__main__":
             )
         )
 
-    success_message = "DDNS update request successful: {}".format(
+    success_message = "Google Dynamic DNS update request successful: {}".format(
         update_google_ddns_request_result.text
     )
 
