@@ -39,11 +39,13 @@ def all_equal(iterable) -> bool:
 def get_ip_address_from_web_server(url: str) -> ipaddress.ip_address:
     request_result = requests.get(url)
     if not request_result.ok:
-        raise ValueError("Request was not successful.")
+        raise ValueError("The request to get an IP address was not successful.")
 
     request_result = request_result.text.strip()
     if len(request_result) == 0:
-        raise ValueError("There is no data in the request result.")
+        raise ValueError(
+            "There is no data in the result returned from the request to get an IP address."
+        )
 
     return ipaddress.ip_address(request_result)
 
