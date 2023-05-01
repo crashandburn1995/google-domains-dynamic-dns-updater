@@ -10,13 +10,13 @@ Version:     3.0.17.9190
 ```
 It appears that the repository files and cronjob persist when the UDR is restarted. However, it is not known whether they persist after a firmware update.
 
-## Instructions for Unifi Devices
+## Instructions for UniFi Devices
 1. Replace the `username`, `password` and `hostname` values in `update_google_ddns.py` with:
     - Username -> The username in the `view credentials` window in Google Domains Dynamic DNS.
     - Password -> The password in the `view credentials` window in Google Domains Dynamic DNS.
     - Hostname -> The host name for the Dynamic DNS entry (e.g. `remoteaccess.mysite.com`).
-2. Enable SSH on your Unifi device, login as root and upload this repository to `/root`. Once complete you will have a directory at `/root/google-domains-dynamic-dns-updater`. It will contain `update_google_ddns.sh`, `update_google_ddns.py` and `requirements.txt`.
-3. Install `pip` and the requirements file on your Unifi device by doing:
+2. Enable SSH on your UniFi device, login as root and upload this repository to `/root`. Once complete you will have a directory at `/root/google-domains-dynamic-dns-updater`. It will contain `update_google_ddns.sh`, `update_google_ddns.py` and `requirements.txt`.
+3. Install `pip` and the requirements file on your UniFi device by doing:
     ```
     cd /root/google-domains-dynamic-dns-updater/ && sudo apt-get install python3-pip -y && pip3 install -r requirements.txt 
     ```
@@ -24,7 +24,7 @@ It appears that the repository files and cronjob persist when the UDR is restart
     ```
     chmod +x update_google_ddns.*
     ```
-5. Setup a cron job to make the bash script run periodically. The following command can be used on the Unifi device to do this:
+5. Setup a cron job to make the bash script run periodically. The following command can be used on the UniFi device to do this:
     ```
     (crontab -u root -l; echo "0 */5 * * * /root/google-domains-dynamic-dns-updater/update_google_ddns.sh" ) | crontab -u root -
     ```
@@ -40,4 +40,4 @@ It appears that the repository files and cronjob persist when the UDR is restart
     ```
     UDR update_google_ddns[]: DDNS update request successful: (response from Google)
     ```
-8. Disable SSH on the Unifi device if desired.
+8. Disable SSH on the UniFi device if desired.
