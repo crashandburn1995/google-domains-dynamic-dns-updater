@@ -37,15 +37,15 @@ def all_equal(iterable) -> bool:
 # This function makes a request to a web server and returns an ip address.
 # It returns an IP address or an exception.
 def get_ip_address_from_web_server(url: str) -> ipaddress.ip_address:
-    query_result = requests.get(url)
-    if not query_result.ok:
+    request_result = requests.get(url)
+    if not request_result.ok:
         raise ValueError("Request was not successful.")
 
-    query_text = query_result.text.strip()
-    if len(query_text) == 0:
-        raise ValueError("There is no data in the returned query.")
+    request_result = request_result.text.strip()
+    if len(request_result) == 0:
+        raise ValueError("There is no data in the request result.")
 
-    return ipaddress.ip_address(query_text)
+    return ipaddress.ip_address(request_result)
 
 
 # This function makes requests to multiple web servers which return an IP address.
