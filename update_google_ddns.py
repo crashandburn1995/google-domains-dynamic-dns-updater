@@ -108,7 +108,7 @@ if __name__ == "__main__":
         update_google_ddns_request_result.text
     )
 
-    # Otherwise, print the success message.
+    # Print the success message.
     print(
         success_message,
         flush=True,
