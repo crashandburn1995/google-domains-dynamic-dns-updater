@@ -8,7 +8,7 @@ I ran this on the following device and firmware:
 Model:       UniFi Dream Router
 Version:     3.0.17.9190
 ```
-It appears that the repository files and cronjob persist when the UDR is restarted. However, it is not known whether they persist after a firmware update.
+It appears that the repository files and cron job persist when the UDR is restarted. However, it is not known whether they persist after a firmware update.
 
 ## Instructions for UniFi Devices
 1. Replace the `username`, `password` and `hostname` values in `update_google_ddns.py` with:
