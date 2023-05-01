@@ -76,7 +76,7 @@ if __name__ == "__main__":
 
     current_ip = ip_addresses[0]
 
-    # Send request to Google DDNS to update the IP.
+    # Send request to Google DDNS to update the DNS record with the WAN IP.
     update_ddns_request = requests.post(
         update_google_ddns_url.format(username, password, hostname, current_ip)
     )
