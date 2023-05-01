@@ -11,7 +11,7 @@ update_google_ddns_url = (
 )
 
 # The maximum number of times to attempt to get the WAN IP.
-wan_ip_retrieval_attempts = 3
+wan_ip_retrieval_retry_attempts = 3
 
 # Google DDNS credentials and hostname.
 username = ""
@@ -72,7 +72,7 @@ if __name__ == "__main__":
         raise ValueError("The Google DDNS hostname is empty.")
 
     # Attempt to get the WAN IP and retry if there is an error (up to the configured number of retry attempts).
-    for attempt in range(wan_ip_retrieval_attempts):
+    for attempt in range(wan_ip_retrieval_retry_attempts):
         # Get the WAN IP from multiple sources.
         try:
             ip_addresses = get_ip_addresses_from_multiple_web_servers(
