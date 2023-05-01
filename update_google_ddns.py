@@ -38,7 +38,7 @@ def all_equal(iterable) -> bool:
 # It returns an IP address or an exception.
 def get_ip_address_from_web_server(url: str) -> ipaddress.ip_address:
     query_result = requests.get(url)
-    if not query_result.status_code.ok:
+    if not query_result.ok:
         raise ValueError("Request was not successful.")
 
     query_text = query_result.text.strip()
