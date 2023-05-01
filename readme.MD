@@ -1,7 +1,7 @@
 # Update Google Dynamic DNS Script
 This script updates a Google Dynamic DNS record for a domain from Google Domains.
 
-I created this script so that my Unifi Dream Router would automatically update my Google Domain with my WAN IP. This would then enable me to host a WireGuard VPN Server behind NAT. However, this script should work on any system that can run Python 3.
+I created this script so that my Unifi Dream Router would automatically update my Google Domain with my WAN IP. This would then enable me to host a WireGuard VPN Server with a dynamic WAN IP. However, this script should work on any system that can run Python 3.
 
 I ran this on the following device and firmware:
 ```
