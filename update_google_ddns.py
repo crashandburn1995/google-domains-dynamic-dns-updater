@@ -60,7 +60,7 @@ def get_ip_addresses_from_multiple_web_servers(urls: list) -> list:
 
 
 if __name__ == "__main__":
-    # Attempt to get the WAN IP up to 3 times before exiting.
+    # Attempt to get the WAN IP multiple times before exiting.
     for attempt in range(ip_retrieval_attempts):
         # Get the WAN IP from multiple sources.
         ip_addresses = get_ip_addresses_from_multiple_web_servers(
