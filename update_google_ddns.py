@@ -50,7 +50,7 @@ def get_ip_address_from_web_server(url: str) -> ipaddress.ip_address:
 
 # This function makes requests to multiple web servers which return an IP address.
 # It returns a list of IP addresses or an exception.
-def get_ip_addresses_from_multiple_web_servers(urls: str) -> list:
+def get_ip_addresses_from_multiple_web_servers(urls: list) -> list:
     returned_ip_addresses = []
     for url in urls:
         ip_address = get_ip_address_from_web_server(url)
