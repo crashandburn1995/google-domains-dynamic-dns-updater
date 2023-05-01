@@ -15,7 +15,7 @@ It appears that the repository files and cronjob persist when the UDR is restart
     - Username -> The username in the `view credentials` window in Google Domains Dynamic DNS.
     - Password -> The password in the `view credentials` window in Google Domains Dynamic DNS.
     - Hostname -> The host name for the Dynamic DNS entry (e.g. `remoteaccess.mysite.com`).
-2. Enable SSH on your UniFi device, login as root and upload this repository to `/root`. Once complete you will have a directory at `/root/google-domains-dynamic-dns-updater` on your UniFi device.
+2. Enable SSH on your UniFi device, login as root and upload this repository to `/root`. Once complete you will have this directory `/root/google-domains-dynamic-dns-updater` on your UniFi device.
 3. Install `pip` and the requirements file on your UniFi device by doing:
     ```
     cd /root/google-domains-dynamic-dns-updater/ && sudo apt-get install python3-pip -y && pip3 install -r requirements.txt 
