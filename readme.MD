@@ -1,13 +1,14 @@
 # Update Google Dynamic DNS Script
 This script updates a Google Dynamic DNS record for a domain from Google Domains.
 
-I created this script so that my Unifi Dream Router would automatically update my Google Domain with my WAN IP. This would then enable me to host a WireGuard VPN Server with a dynamic WAN IP. However, this script should work on any system that can run Python 3.
+I created this script so that my UniFi Dream Router (UDR) would automatically update my Google Domain with my WAN IP. This would then enable me to host a WireGuard VPN Server with a dynamic WAN IP. However, this script should work on any system that can run Python 3.
 
 I ran this on the following device and firmware:
 ```
 Model:       UniFi Dream Router
 Version:     3.0.17.9190
 ```
+It appears that the repository files and cronjob persist when the UDR is restarted. However, it is not known whether they persist after a firmware update.
 
 ## Instructions for Unifi Devices
 1. Replace the `username`, `password` and `hostname` values in `update_google_ddns.py` with:
