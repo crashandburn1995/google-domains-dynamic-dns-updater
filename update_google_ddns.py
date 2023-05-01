@@ -85,7 +85,7 @@ if __name__ == "__main__":
         if all_equal(ip_addresses):
             break
     else:
-        # Exit the program if the IP addresses don't match after the maximum number of attempts.
+        # Exit the program if it is not possible to get the WAN IP after the maximum number of attempts.
         raise ValueError(
             "The maximum number of attempts to get the WAN IP was exceeded."
         )
