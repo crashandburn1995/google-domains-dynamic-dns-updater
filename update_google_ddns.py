@@ -77,20 +77,20 @@ if __name__ == "__main__":
     current_ip = ip_addresses[0]
 
     # Send request to Google DDNS to update the DNS record with the WAN IP.
-    update_ddns_request = requests.post(
+    update_ddns_request_result = requests.post(
         update_google_ddns_url.format(username, password, hostname, current_ip)
     )
 
     # If an error occurs, print it to the console.
-    if not update_ddns_request.ok:
+    if not update_ddns_request_result.ok:
         raise ValueError(
             "An error occurred when updating the domain: {}".format(
-                update_ddns_request.text
+                update_ddns_request_result.text
             )
         )
 
     # Otherwise, print the success message.
     print(
-        "DDNS update request successful: {}".format(update_ddns_request.text),
+        "DDNS update request successful: {}".format(update_ddns_request_result.text),
         flush=True,
     )
