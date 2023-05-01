@@ -1,18 +1,24 @@
 #!/usr/bin/env python3
-# This file updates a Google DDNS record with the WAN IP.
+# This file updates a Google DDNS record with the WAN IP of the system running the script.
 
 import requests
 import ipaddress
 from itertools import groupby
 
-ip_retrieval_attempts = 3
+# The URL to use to update the Google DDNS record.
 update_google_ddns_url = (
     "https://{}:{}@domains.google.com/nic/update?hostname={}&myip={}"
 )
+
+# The number of times to attempt to get the WAN IP.
+ip_retrieval_attempts = 3
+
+# Google DDNS credentials and hostname.
 username = ""
 password = ""
 hostname = ""
 
+# URLs which return the requestor's WAN IP.
 urls_which_return_requestor_ip_address = [
     "https://icanhazip.com",
     "https://ifconfig.me",
