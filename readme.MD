@@ -32,7 +32,7 @@ It appears that the repository files and cron job persist when the UDR is restar
     ```
     sudo crontab -u root -e
     ```
-6. The cron job should now be updating your Dynamic DNS entry periodically. The script outputs a log to `/var/log/messages`, you can see the log with: 
+6. The cron job should now be updating your Dynamic DNS entry periodically. The script outputs log messages to `/var/log/messages`, you can see the log with: 
     ```
     tail -f /var/log/messages
     ```
